@@ -25,3 +25,8 @@ Route::resource('/messages', 'MessageController');
 Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
 Route::get('/callback/{provider}', 'SocialController@callback');
 Route::post('/file_store', 'HomeController@storeFile')->name('file_store');
+Route::get('/video', "VideoRoomsController@index")->name('video');
+Route::prefix('room')->middleware('auth')->group(function() {
+   Route::get('join/{roomName}', 'VideoRoomsController@joinRoom');
+   Route::post('create', 'VideoRoomsController@createRoom');
+});

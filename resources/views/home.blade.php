@@ -18,6 +18,8 @@
                     @endif
                     You are logged in!
                     <a href="{{ route('chat') }}">Chat</a>
+                    or
+                    <a href="{{ route('video') }}">Video Call</a>
                     <hr>
                     <form method="POST" action="{{ route('file_store') }}" enctype="multipart/form-data">
                         @csrf
